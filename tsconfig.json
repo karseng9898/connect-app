@@ -42,6 +42,10 @@
     "paths": {
       "@components": ["src/components"],
       "@components/*": ["src/components/*"],
+      "@common": ["src/components/common"],
+      "@common/*": ["src/components/common/*"],
+      "@forms": ["src/forms"],
+      "@forms/*": ["src/forms/*"],
       "@constants": ["src/constants"],
       "@constants/*": ["src/constants/*"],
       "@navigations": ["src/navigation"],

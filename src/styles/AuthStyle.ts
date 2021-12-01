@@ -18,3 +18,14 @@ export const authStyles = StyleSheet.create({
     height: 300,
   },
 });
+
+export const loginStyles = StyleSheet.create({
+  container: {
+    justifyContent: 'space-between',
+    backgroundColor: 'white',
+    padding: 20,
+  },
+  content: {
+    flex: 1,
+  },
+});
