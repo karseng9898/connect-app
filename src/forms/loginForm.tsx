@@ -1,5 +1,5 @@
 import { LockIcon, MailIcon, TextInput } from '@common';
-import { composeValidators, email, minLength, required } from '@utils';
+import { composeValidators, minLength, required } from '@utils';
 import { Field } from 'formik';
 import React, { FC } from 'react';
 import { ScrollView } from 'react-native';
@@ -13,11 +13,11 @@ export const LoginForm: FC = () => {
   return (
     <ScrollView>
       <Field
-        name="email"
-        placeholder="email"
+        name="usernameOrEmail"
+        placeholder="username / email"
         autoCorrect={false}
         component={TextInput}
-        validate={composeValidators(required, email)}
+        validate={composeValidators(required)}
         leftIcon={
           <MailIcon
             size={DrawingConstant.iconSize}
