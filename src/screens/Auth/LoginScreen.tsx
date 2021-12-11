@@ -4,9 +4,11 @@ import { AppStackNavigationParam } from '@customTypes/NavigationParams';
 import { LoginForm } from '@forms';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { login } from '@store/actions/auth-action';
+import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { appStyles, loginStyles } from '@styles';
 import { Formik } from 'formik';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { KeyboardAvoidingView, Platform, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -16,16 +18,35 @@ export type LoginScreenNavType = NativeStackNavigationProp<
 >;
 export const LoginScreen = () => {
   const navigation = useNavigation<LoginScreenNavType>();
-  function onSubmit(e: any) {
-    console.warn(e);
-    navigation.navigate('HomeScreens');
+  const isAuthenticated = useAppSelector(state => state.auth.isAuthenticated);
+  const dispatch = useAppDispatch();
+
+  interface FormValues {
+    usernameOrEmail: string;
+    password: string;
+  }
+  const initialValues: FormValues = {
+    usernameOrEmail: '',
+    password: '',
+  };
+
+  useEffect(() => {
+    console.log(isAuthenticated);
+    if (isAuthenticated) {
+      navigation.navigate('HomeScreens');
+    }
+  }, [isAuthenticated, navigation]);
+
+  async function onSubmit(value: FormValues) {
+    const { usernameOrEmail, password } = value;
+    await login({ user: { usernameOrEmail, password } })(dispatch);
   }
   return (
     <HideKeyboard>
       <SafeAreaView
         edges={['right', 'bottom', 'left']}
         style={[appStyles.containerPadding, loginStyles.container]}>
-        <Formik initialValues={{ email: '', password: '' }} onSubmit={onSubmit}>
+        <Formik initialValues={initialValues} onSubmit={onSubmit}>
           {({ handleSubmit }) => {
             return (
               <View style={loginStyles.content}>
