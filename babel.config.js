@@ -9,6 +9,7 @@ module.exports = {
           '@components': './src/components',
           '@constants': './src/constants',
           '@common': './src/components/common',
+          '@config': './src/config',
           '@forms': './src/forms',
           '@screens': './src/screens',
           '@src': './src',

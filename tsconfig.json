@@ -44,6 +44,8 @@
       "@components/*": ["src/components/*"],
       "@common": ["src/components/common"],
       "@common/*": ["src/components/common/*"],
+      "@config": ["src/config"],
+      "@config/*": ["src/config/*"],
       "@forms": ["src/forms"],
       "@forms/*": ["src/forms/*"],
       "@constants": ["src/constants"],

@@ -31,7 +31,6 @@ export const LoginScreen = () => {
   };
 
   useEffect(() => {
-    console.log(isAuthenticated);
     if (isAuthenticated) {
       navigation.navigate('HomeScreens');
     }
@@ -39,8 +38,9 @@ export const LoginScreen = () => {
 
   async function onSubmit(value: FormValues) {
     const { usernameOrEmail, password } = value;
-    await login({ user: { usernameOrEmail, password } })(dispatch);
+    await login({ username: usernameOrEmail, password })(dispatch);
   }
+
   return (
     <HideKeyboard>
       <SafeAreaView
