@@ -18,6 +18,7 @@
     "@react-navigation/native-stack": "^6.2.5",
     "@reduxjs/toolkit": "^1.7.0",
     "apollo-upload-client": "^17.0.0",
+    "date-fns": "^2.27.0",
     "formik": "^2.2.9",
     "graphql": "^16.1.0",
     "lodash": "^4.17.21",

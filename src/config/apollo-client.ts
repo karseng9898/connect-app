@@ -1,9 +1,22 @@
-import { ApolloClient, concat, InMemoryCache } from '@apollo/client';
-import { createUploadLink } from 'apollo-upload-client';
+import { ApolloClient, from, InMemoryCache } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 import { onError } from '@apollo/client/link/error';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { createUploadLink } from 'apollo-upload-client';
 
 const uploadLink: any = createUploadLink({
   uri: 'http://localhost:3000/graphql',
+});
+
+const authLink = setContext(async (_, { headers }) => {
+  const access_token = await AsyncStorage.getItem('@access_token');
+
+  return {
+    headers: {
+      ...headers,
+      authorization: access_token ? `Bearer ${access_token}` : '',
+    },
+  };
 });
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
@@ -21,7 +34,9 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
   }
 });
 
+const additiveLink = from([authLink, errorLink, uploadLink]);
+
 export const client = new ApolloClient({
   cache: new InMemoryCache(),
-  link: concat(errorLink, uploadLink),
+  link: additiveLink,
 });
