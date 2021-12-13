@@ -2,7 +2,7 @@ import { logoutConfirmationAlert, SettingItem } from '@components/Settings';
 import {
   SettingSectionListDataType,
   SettingsMenuScreenNavType,
-} from '@customTypes/Settings';
+} from '@src/types/setting';
 import { useNavigation } from '@react-navigation/native';
 import { appStyles, settingStyle } from '@styles';
 import { logout } from '@store/actions/auth-action';

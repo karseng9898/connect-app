@@ -1,4 +1,4 @@
-import { HomeTabNavigationParam } from '@customTypes/NavigationParams';
+import { HomeTabNavigationParam } from '@src/types/navigationParams';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { ContactsScreen } from '@screens/Contacts';
 import { getMe } from '@store/actions/auth-action';

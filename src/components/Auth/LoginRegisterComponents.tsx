@@ -1,4 +1,4 @@
-import { AuthButtonProps } from '@customTypes/Auth';
+import { AuthButtonProps } from '@customTypes/auth';
 import { loginStyles } from '@styles';
 import React, { FC } from 'react';
 import { Alert, View } from 'react-native';

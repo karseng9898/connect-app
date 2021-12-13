@@ -1,5 +1,5 @@
 import { settingStyle } from '@styles';
-import { SettingItemProps } from '@customTypes/Settings';
+import { SettingItemProps } from '@src/types/setting';
 import React, { FC } from 'react';
 import { Pressable, View } from 'react-native';
 import { Divider, Icon, Text } from 'react-native-elements';

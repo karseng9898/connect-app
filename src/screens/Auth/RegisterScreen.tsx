@@ -1,10 +1,10 @@
 import { HideKeyboard } from '@common';
 import { AuthButton, successRegisterAlert } from '@components';
 import { client } from '@config/apollo-client';
+import { RegisterInput, RegisterScreenNavType } from '@customTypes/auth';
 import { RegisterForm } from '@forms';
 import { useNavigation } from '@react-navigation/native';
 import { REGISTER } from '@src/graphql/user.graphql';
-import { RegisterInput, RegisterScreenNavType } from '@customTypes/Auth';
 import { appStyles, loginStyles } from '@styles';
 import { Formik } from 'formik';
 import React, { useState } from 'react';

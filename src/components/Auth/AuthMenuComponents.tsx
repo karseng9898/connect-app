@@ -1,5 +1,5 @@
 import { AuthMenuNavType } from '@screens';
-import { authStyles } from '@styles/AuthStyle';
+import { authStyles } from '@styles';
 import React, { FC } from 'react';
 import { View } from 'react-native';
 import { Button, Image } from 'react-native-elements';

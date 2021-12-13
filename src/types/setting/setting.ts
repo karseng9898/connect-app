@@ -1,5 +1,5 @@
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { AppStackNavigationParam } from '../NavigationParams';
+import { AppStackNavigationParam } from '../navigationParams';
 
 export interface SettingSectionListDataType {
   title: string;
