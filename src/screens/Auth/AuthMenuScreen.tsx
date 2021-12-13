@@ -7,7 +7,7 @@ import { authStyles } from '@styles/AuthStyle';
 import React, { useEffect } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAppSelector } from '@store/hooks';
-import { AuthScreenAppNavProp } from '@customTypes/auth';
+import { AuthScreenAppNavType } from '@customTypes/navigationType';
 
 export type AuthMenuNavType = NativeStackNavigationProp<
   AuthStackNavigationParam,
@@ -15,7 +15,7 @@ export type AuthMenuNavType = NativeStackNavigationProp<
 >;
 export const AuthMenuScreen = () => {
   const navigation = useNavigation<AuthMenuNavType>();
-  const appNavigation = useNavigation<AuthScreenAppNavProp>();
+  const appNavigation = useNavigation<AuthScreenAppNavType>();
   const auth = useAppSelector(state => state.auth);
 
   useEffect(() => {

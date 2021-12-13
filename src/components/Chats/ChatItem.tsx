@@ -1,24 +1,26 @@
 import React, { FC } from 'react';
-import { View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { Avatar, Divider, Text } from 'react-native-elements';
 import { formatDistanceToNow } from 'date-fns';
 import { chatsScreenStyle } from '@styles';
+import { ChatItemProps } from '@customTypes/chat';
+import { useNavigation } from '@react-navigation/native';
+import { ChatsScreenNavType } from '@customTypes/navigationType';
 
-interface ChatItemProps {
-  data: ChatItemDataType;
-}
-export interface ChatItemDataType {
-  id: string;
-  name: string;
-  avatarUrl: string;
-  createdAt: string;
-  content: string;
-}
 export const ChatItem: FC<ChatItemProps> = props => {
-  const { name, avatarUrl, createdAt, content } = props.data;
+  const { name, avatarUrl, createdAt, content, chatRoomId } = props.data;
+  const navigate = useNavigation<ChatsScreenNavType>().navigate;
+
+  const onPress = () => {
+    navigate('ChatsRoomScreen', { chatRoomId });
+  };
 
   return (
-    <View>
+    <Pressable
+      style={({ pressed }) => ({
+        backgroundColor: pressed ? '#ccc' : 'white',
+      })}
+      onPress={onPress}>
       <View style={[chatsScreenStyle.itemContainer]}>
         <Avatar
           source={{
@@ -50,6 +52,6 @@ export const ChatItem: FC<ChatItemProps> = props => {
         </View>
       </View>
       <Divider />
-    </View>
+    </Pressable>
   );
 };

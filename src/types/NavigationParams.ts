@@ -5,6 +5,9 @@ export type AppStackNavigationParam = {
       }
     | undefined;
   HomeScreens: undefined;
+  ChatsRoomScreen: {
+    chatRoomId: string;
+  };
 };
 
 export type AuthStackNavigationParam = {
@@ -22,7 +25,6 @@ export type HomeTabNavigationParam = {
 
 export type ChatStackNavigationParam = {
   ChatsScreen: undefined;
-  ChatsRoomScreen: undefined;
 };
 
 export type SettingsStackNavigationParam = {

@@ -1,8 +1,5 @@
 import { logoutConfirmationAlert, SettingItem } from '@components/Settings';
-import {
-  SettingSectionListDataType,
-  SettingsMenuScreenNavType,
-} from '@src/types/setting';
+import { SettingSectionListDataType } from '@src/types/setting';
 import { useNavigation } from '@react-navigation/native';
 import { appStyles, settingStyle } from '@styles';
 import { logout } from '@store/actions/auth-action';
@@ -10,6 +7,7 @@ import { useAppDispatch } from '@store/hooks';
 import React from 'react';
 import { SectionList, View } from 'react-native';
 import { Divider, Text } from 'react-native-elements';
+import { SettingsMenuScreenNavType } from '@customTypes/navigationType';
 
 export const SettingsMenuScreen = () => {
   const dispatch = useAppDispatch();

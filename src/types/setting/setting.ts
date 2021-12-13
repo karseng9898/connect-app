@@ -1,6 +1,3 @@
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { AppStackNavigationParam } from '../navigationParams';
-
 export interface SettingSectionListDataType {
   title: string;
   data: SettingDataType[];
@@ -8,11 +5,6 @@ export interface SettingSectionListDataType {
 export interface SettingDataType {
   name: string;
 }
-
-export type SettingsMenuScreenNavType = NativeStackNavigationProp<
-  AppStackNavigationParam,
-  'HomeScreens'
->;
 
 export interface SettingItemProps {
   onPress: () => void;

@@ -2,6 +2,8 @@ import { HideKeyboard } from '@common';
 import { AuthButton } from '@components';
 import { LoginInput } from '@customTypes/auth';
 import { LoginForm } from '@forms';
+import { useNavigation } from '@react-navigation/native';
+import { AuthScreenAppNavType } from '@customTypes/navigationType';
 import { login } from '@store/actions/auth-action';
 import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { appStyles, loginStyles } from '@styles';
@@ -12,6 +14,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 export const LoginScreen = () => {
   const auth = useAppSelector(state => state.auth);
+  const navigate = useNavigation<AuthScreenAppNavType>().navigate;
   const dispatch = useAppDispatch();
 
   const initialValues: LoginInput = {
@@ -25,7 +28,12 @@ export const LoginScreen = () => {
 
   async function onSubmit(value: LoginInput) {
     const { usernameOrEmail, password } = value;
-    await login({ username: usernameOrEmail, password })(dispatch);
+    try {
+      await login({ username: usernameOrEmail, password })(dispatch);
+      navigate('HomeScreens');
+    } catch (err) {
+      console.warn(err);
+    }
   }
 
   return (
