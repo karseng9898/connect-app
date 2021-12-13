@@ -27,3 +27,11 @@ export const REGISTER = gql`
     }
   }
 `;
+
+export const GET_ME = gql`
+  query getMe {
+    getMe {
+      ${UserFields}
+    }
+  }
+`;

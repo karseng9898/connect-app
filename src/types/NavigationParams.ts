@@ -16,9 +16,19 @@ export type AuthStackNavigationParam = {
 export type HomeTabNavigationParam = {
   ChatsScreens: undefined;
   SettingsScreens: undefined;
+  ContactsScreen: undefined;
+  FeedsScreen: undefined;
 };
 
 export type ChatStackNavigationParam = {
   ChatsScreen: undefined;
   ChatsRoomScreen: undefined;
+};
+
+export type SettingsStackNavigationParam = {
+  SettingsScreen: undefined;
+};
+
+export type FeedStackNavigationParam = {
+  FeedsScreen: undefined;
 };
