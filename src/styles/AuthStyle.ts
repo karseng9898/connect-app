@@ -25,6 +25,10 @@ export const loginStyles = StyleSheet.create({
     backgroundColor: 'white',
     padding: 20,
   },
+  divider: {
+    marginBottom: 12,
+    marginHorizontal: -20,
+  },
   content: {
     flex: 1,
   },

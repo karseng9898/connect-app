@@ -1,5 +1,9 @@
 export type AppStackNavigationParam = {
-  AuthScreens: undefined;
+  AuthScreens:
+    | {
+        screen?: 'AuthMenuScreen' | 'RegisterScreen' | 'LoginScreen';
+      }
+    | undefined;
   HomeScreens: undefined;
 };
 
