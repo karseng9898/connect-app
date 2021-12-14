@@ -1,4 +1,4 @@
-import { LockIcon, MailIcon, NameIcon, PersonIcon, TextInput } from '@common';
+import { MailIcon, PersonIcon, NameIcon, LockIcon } from '@components';
 import {
   alphaNumeric,
   composeValidators,
@@ -9,7 +9,7 @@ import {
 } from '@utils';
 import { Field } from 'formik';
 import React, { FC } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, TextInput } from 'react-native';
 
 export const RegisterForm: FC<{
   values: {

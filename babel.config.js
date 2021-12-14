@@ -11,7 +11,7 @@ module.exports = {
           '@common': './src/components/common',
           '@config': './src/config',
           '@forms': './src/forms',
-          '@screens': './src/screens',
+          '@modules': './src/modules',
           '@src': './src',
           '@customTypes': './src/types',
           '@store': './src/store',
@@ -19,6 +19,12 @@ module.exports = {
           '@navigations': './src/navigations',
           '@utils': './src/utils',
         },
+      },
+    ],
+    [
+      'module:react-native-dotenv',
+      {
+        moduleName: 'react-native-dotenv',
       },
     ],
   ],

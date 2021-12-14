@@ -3,9 +3,9 @@ import { StyleSheet } from 'react-native';
 export const authStyles = StyleSheet.create({
   container: {
     justifyContent: 'flex-end',
+    paddingHorizontal: 20,
   },
   button: {
-    marginHorizontal: 20,
     marginVertical: 8,
   },
   logoContainer: {

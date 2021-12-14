@@ -1,6 +1,6 @@
-import { HomeTabNavigationParam } from '@src/types/navigationParams';
+import { HomeTabNavigationParam } from '@src/navigations/types/navigationParams';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { ContactsScreen } from '@screens/Contacts';
+import { ContactsScreen } from '@src/modules';
 import { getMe } from '@store/actions/auth-action';
 import { useAppDispatch } from '@store/hooks';
 import React, { useEffect } from 'react';

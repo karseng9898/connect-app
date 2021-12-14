@@ -1,7 +1,7 @@
 import React from 'react';
-import { ChatStackNavigationParam } from '@src/types/navigationParams';
+import { ChatStackNavigationParam } from '@src/navigations/types/navigationParams';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { ChatsScreen } from '@screens';
+import { ChatsScreen } from '@src/modules';
 
 const Stack = createNativeStackNavigator<ChatStackNavigationParam>();
 

@@ -1,5 +1,12 @@
 import { gql } from '@apollo/client';
 
+export interface User {
+  username: string;
+  email: string;
+  name: string;
+  createdAt: string;
+}
+
 const loginFields = `
   access_token
   refresh_token

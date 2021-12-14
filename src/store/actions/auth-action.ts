@@ -1,4 +1,5 @@
 import { client } from '@config/apollo-client';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { GET_ME, LOGIN } from '@src/graphql/user.graphql';
 import { AppDispatch } from '@store';
 import {
@@ -8,7 +9,6 @@ import {
   successLogout,
   updateMe,
 } from '@store/reducers/auth-reducer';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface LoginInput {
   username: string;
@@ -26,7 +26,7 @@ export const login = (data: LoginInput) => (dispatch: AppDispatch) => {
       });
       const access_token = res.data.login.access_token;
       const refresh_token = res.data.login.refresh_token;
-      console.log(access_token);
+
       await AsyncStorage.setItem('@access_token', access_token);
       await AsyncStorage.setItem('@refresh_token', refresh_token);
 
@@ -42,8 +42,7 @@ export const login = (data: LoginInput) => (dispatch: AppDispatch) => {
 export const getMe = () => async (dispatch: AppDispatch) => {
   try {
     const res = await client.query({ query: GET_ME });
-    console.log(res);
-    dispatch(updateMe(res.data));
+    dispatch(updateMe({ user: res.data.getMe, type: 'updateMe' }));
   } catch (e) {
     console.warn(e);
   }
