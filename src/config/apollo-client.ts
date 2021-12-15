@@ -3,10 +3,12 @@ import { setContext } from '@apollo/client/link/context';
 import { onError } from '@apollo/client/link/error';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createUploadLink } from 'apollo-upload-client';
+import { API_BASE } from 'react-native-dotenv';
 
 const uploadLink: any = createUploadLink({
-  uri: 'http://localhost:3000/graphql',
+  uri: `${API_BASE}/graphql`,
 });
+console.log(API_BASE);
 
 const authLink = setContext(async (_, { headers }) => {
   const access_token = await AsyncStorage.getItem('@access_token');

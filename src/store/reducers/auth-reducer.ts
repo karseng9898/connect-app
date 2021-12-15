@@ -1,9 +1,10 @@
 import { AnyAction, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { User } from '@src/graphql/user.graphql';
 
 interface AuthState {
   isAuthenticated: boolean;
   isAuthenticating: boolean;
-  user: any;
+  user: User | null;
 }
 const initialState: AuthState = {
   isAuthenticated: false,

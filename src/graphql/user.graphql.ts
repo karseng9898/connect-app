@@ -1,5 +1,12 @@
 import { gql } from '@apollo/client';
 
+export interface User {
+  username: string;
+  email: string;
+  name: string;
+  createdAt: string;
+}
+
 const loginFields = `
   access_token
   refresh_token
@@ -31,6 +38,14 @@ export const REGISTER = gql`
 export const GET_ME = gql`
   query getMe {
     getMe {
+      ${UserFields}
+    }
+  }
+`;
+
+export const GET_USER = gql`
+  query user($username: String!) {
+    user(username: $username) {
       ${UserFields}
     }
   }

@@ -1,4 +1,10 @@
-import { LockIcon, MailIcon, NameIcon, PersonIcon, TextInput } from '@common';
+import {
+  LockIcon,
+  MailIcon,
+  NameIcon,
+  PersonIcon,
+  TextInput,
+} from '@src/modules/app';
 import {
   alphaNumeric,
   composeValidators,
@@ -58,7 +64,7 @@ export const RegisterForm: FC<{
         placeholder="name"
         autoCorrect={false}
         component={TextInput}
-        validate={composeValidators(required, alphaNumeric)}
+        validate={composeValidators(required)}
         leftIcon={
           <NameIcon
             size={DrawingConstant.iconSize}
