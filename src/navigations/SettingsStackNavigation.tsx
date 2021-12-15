@@ -1,7 +1,7 @@
-import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SettingsMenuScreen } from '@src/modules';
 import { SettingsStackNavigationParam } from '@src/navigations/types/navigationParams';
+import React from 'react';
 
 const Stack = createNativeStackNavigator<SettingsStackNavigationParam>();
 

@@ -1,4 +1,4 @@
-import { KeyboardAvoidView } from '@components';
+import { KeyboardAvoidView } from '@src/modules/app';
 import { appStyles } from '@src/styles';
 import React, { useState } from 'react';
 import { FlatList } from 'react-native';

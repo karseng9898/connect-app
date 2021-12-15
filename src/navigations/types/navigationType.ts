@@ -1,14 +1,14 @@
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { AppStackNavigationParam } from './navigationParams';
 
-export type ChatsScreenNavType = NativeStackNavigationProp<
-  AppStackNavigationParam,
-  'HomeScreens'
->;
-
 export type ChatRoomNavType = NativeStackNavigationProp<
   AppStackNavigationParam,
   'ChatsRoomScreen'
+>;
+
+export type HomeScreenNavType = NativeStackNavigationProp<
+  AppStackNavigationParam,
+  'HomeScreens'
 >;
 
 export type AuthScreenAppNavType = NativeStackNavigationProp<

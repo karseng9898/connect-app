@@ -7,6 +7,8 @@ import React, { useEffect } from 'react';
 import { Icon } from 'react-native-elements';
 import { ChatStackNavigation } from '.';
 import { SettingsStackNavigation } from './SettingsStackNavigation';
+import { Pressable } from 'react-native';
+import { ContactHeaderAddUserIcon } from '@src/modules/contacts/components/ContactHeaderAddUserIcon';
 
 const Tab = createBottomTabNavigator<HomeTabNavigationParam>();
 
@@ -61,7 +63,17 @@ export const HomeTabNavigation = () => {
       <Tab.Screen
         name="ContactsScreen"
         component={ContactsScreen}
-        options={{ headerShown: true }}
+        options={({ navigation }) => {
+          return {
+            headerShown: true,
+            headerRightContainerStyle: {
+              paddingRight: 12,
+            },
+            headerRight: () => (
+              <ContactHeaderAddUserIcon navigation={navigation} />
+            ),
+          };
+        }}
       />
       <Tab.Screen name="ChatsScreens" component={ChatStackNavigation} />
       <Tab.Screen name="SettingsScreens" component={SettingsStackNavigation} />

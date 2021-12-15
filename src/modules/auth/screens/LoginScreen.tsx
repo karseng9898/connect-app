@@ -1,6 +1,6 @@
-import { HideKeyboard, KeyboardAvoidView } from '@components';
 import { LoginForm } from '@forms';
 import { useNavigation } from '@react-navigation/native';
+import { HideKeyboard, KeyboardAvoidView } from '@src/modules/app';
 import { AuthScreenAppNavType } from '@src/navigations/types';
 import { login } from '@store/actions/auth-action';
 import { useAppDispatch, useAppSelector } from '@store/hooks';

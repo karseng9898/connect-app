@@ -1,4 +1,10 @@
-import { MailIcon, PersonIcon, NameIcon, LockIcon } from '@components';
+import {
+  LockIcon,
+  MailIcon,
+  NameIcon,
+  PersonIcon,
+  TextInput,
+} from '@src/modules/app';
 import {
   alphaNumeric,
   composeValidators,
@@ -9,7 +15,7 @@ import {
 } from '@utils';
 import { Field } from 'formik';
 import React, { FC } from 'react';
-import { ScrollView, TextInput } from 'react-native';
+import { ScrollView } from 'react-native';
 
 export const RegisterForm: FC<{
   values: {
@@ -58,7 +64,7 @@ export const RegisterForm: FC<{
         placeholder="name"
         autoCorrect={false}
         component={TextInput}
-        validate={composeValidators(required, alphaNumeric)}
+        validate={composeValidators(required)}
         leftIcon={
           <NameIcon
             size={DrawingConstant.iconSize}

@@ -3,13 +3,13 @@ import { Pressable, View } from 'react-native';
 import { Avatar, Divider, Text } from 'react-native-elements';
 import { chatsScreenStyle } from '@styles';
 import { useNavigation } from '@react-navigation/native';
-import { ChatsScreenNavType } from '@src/navigations/types/navigationType';
 import { ChatItemProps } from '../types';
 import moment from 'moment';
+import { HomeScreenNavType } from '@src/navigations/types';
 
 export const ChatItem: FC<ChatItemProps> = props => {
   const { name, avatarUrl, createdAt, content, chatRoomId } = props.data;
-  const navigate = useNavigation<ChatsScreenNavType>().navigate;
+  const navigate = useNavigation<HomeScreenNavType>().navigate;
 
   const onPress = () => {
     navigate('ChatsRoomScreen', { chatRoomId });

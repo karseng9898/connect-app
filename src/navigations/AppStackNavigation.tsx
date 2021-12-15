@@ -5,6 +5,7 @@ import React from 'react';
 import { HomeTabNavigation } from '.';
 import { AppStackNavigationParam } from './types/navigationParams';
 import { AuthStackNavigation } from './AuthNavigation';
+import { SearchUserScreen } from '@src/modules/app';
 
 const Stack = createNativeStackNavigator<AppStackNavigationParam>();
 
@@ -23,6 +24,15 @@ export const AppStackNavigation = () => {
               return <ChatRoomHeader route={route} navigation={navigation} />;
             },
           };
+        }}
+      />
+      <Stack.Screen
+        name="SearchUserScreen"
+        component={SearchUserScreen}
+        options={{
+          headerShown: true,
+          title: 'Add Friend',
+          headerShadowVisible: false,
         }}
       />
     </Stack.Navigator>

@@ -1,8 +1,8 @@
-import { HideKeyboard, KeyboardAvoidView } from '@components';
 import { client } from '@config/apollo-client';
 import { RegisterForm } from '@forms';
 import { useNavigation } from '@react-navigation/native';
 import { REGISTER } from '@src/graphql/user.graphql';
+import { HideKeyboard, KeyboardAvoidView } from '@src/modules/app';
 import { RegisterScreenNavType } from '@src/navigations/types';
 import { appStyles, loginStyles } from '@styles';
 import { Formik } from 'formik';

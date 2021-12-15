@@ -42,6 +42,7 @@ export const login = (data: LoginInput) => (dispatch: AppDispatch) => {
 export const getMe = () => async (dispatch: AppDispatch) => {
   try {
     const res = await client.query({ query: GET_ME });
+    console.log(res);
     dispatch(updateMe({ user: res.data.getMe, type: 'updateMe' }));
   } catch (e) {
     console.warn(e);
@@ -50,5 +51,6 @@ export const getMe = () => async (dispatch: AppDispatch) => {
 
 export const logout = () => async (dispatch: AppDispatch) => {
   await AsyncStorage.multiRemove(['@access_token', '@refresh_token']);
+  await client.resetStore();
   dispatch(successLogout());
 };
