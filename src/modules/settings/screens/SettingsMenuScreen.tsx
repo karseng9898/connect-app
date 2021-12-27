@@ -39,8 +39,8 @@ export const SettingsMenuScreen = () => {
             name = 'logout';
             color = '#ca4b4b';
             onPress = () => {
-              logoutConfirmationAlert(() => {
-                logout()(dispatch);
+              logoutConfirmationAlert(async () => {
+                await logout()(dispatch);
                 navigation.navigate('AuthScreens', {
                   screen: 'AuthMenuScreen',
                 });
