@@ -2,7 +2,8 @@ import { appStyles } from '@src/styles';
 import { SectionListDataType } from '@src/types/app.types';
 import React from 'react';
 import { SectionList, View } from 'react-native';
-import { ContactItem, Header } from '../components';
+import { ContactItem } from '../components/ContactItem';
+import { Header } from '../components/ContactListSectionHeader';
 import { ContactListDataType } from '../types';
 
 export const ContactsScreen = () => {

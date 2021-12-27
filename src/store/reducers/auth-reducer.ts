@@ -1,4 +1,4 @@
-import { AnyAction, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { User } from '@src/graphql/user.graphql';
 
 interface AuthState {
@@ -12,6 +12,9 @@ const initialState: AuthState = {
   user: null,
 };
 
+export interface UpdateMePayloadAction {
+  user: User | null;
+}
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -32,7 +35,7 @@ export const authSlice = createSlice({
       state.isAuthenticating = false;
       state.user = null;
     },
-    updateMe: (state, action: PayloadAction<AnyAction>) => {
+    updateMe: (state, action: PayloadAction<UpdateMePayloadAction>) => {
       state.user = action.payload.user;
     },
   },

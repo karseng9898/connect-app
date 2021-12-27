@@ -5,6 +5,7 @@ export interface User {
   email: string;
   name: string;
   createdAt: string;
+  avatar: string | null;
 }
 
 const loginFields = `
@@ -17,6 +18,7 @@ const UserFields = `
   email
   name
   createdAt
+  avatar
 `;
 
 export const LOGIN = gql`
@@ -47,6 +49,14 @@ export const GET_USER = gql`
   query user($username: String!) {
     user(username: $username) {
       ${UserFields}
+    }
+  }
+`;
+
+export const UPDATE_ME = gql`
+  mutation updateMe($name: String!, $thumbnail: Upload) {
+    updateMe(name: $name, thumbnail: $thumbnail) {
+      url
     }
   }
 `;

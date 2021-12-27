@@ -1,9 +1,10 @@
-import { KeyboardAvoidView } from '@src/modules/app';
+import { KeyboardAvoidView } from '@src/modules/app/components/KeyboardViews';
 import { appStyles } from '@src/styles';
 import React, { useState } from 'react';
 import { FlatList } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { ChatMessage, MessageInput } from '../components';
+import { ChatMessage } from '../components/ChatMessage';
+import { MessageInput } from '../components/MessageInput';
 
 export const ChatRoomScreen = () => {
   const [message, setMessage] = useState('');

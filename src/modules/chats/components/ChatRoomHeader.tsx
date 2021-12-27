@@ -1,8 +1,6 @@
 import { RouteProp } from '@react-navigation/native';
-import {
-  AppStackNavigationParam,
-  ChatRoomNavType,
-} from '@src/navigations/types';
+import { AppStackNavigationParam } from '@src/navigations/types/navigationParams';
+import { ChatRoomNavType } from '@src/navigations/types/navigationType';
 import React, { FC } from 'react';
 import { Pressable } from 'react-native';
 import { Avatar, Icon, Text } from 'react-native-elements';

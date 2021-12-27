@@ -1,7 +1,10 @@
-import { LoginForm } from '@forms';
+import { LoginForm } from '@forms/loginForm';
 import { useNavigation } from '@react-navigation/native';
-import { HideKeyboard, KeyboardAvoidView } from '@src/modules/app';
-import { AuthScreenAppNavType } from '@src/navigations/types';
+import {
+  HideKeyboard,
+  KeyboardAvoidView,
+} from '@src/modules/app/components/KeyboardViews';
+import { AuthScreenAppNavType } from '@src/navigations/types/navigationType';
 import { login } from '@store/actions/auth-action';
 import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { appStyles, loginStyles } from '@styles';
@@ -9,7 +12,7 @@ import { Formik } from 'formik';
 import React from 'react';
 import { View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { AuthButton } from '../components';
+import { AuthButton } from '../components/LoginRegisterComponents';
 import { LoginInput } from '../types';
 
 export const LoginScreen = () => {

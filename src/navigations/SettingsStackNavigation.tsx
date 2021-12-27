@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { SettingsMenuScreen } from '@src/modules';
+import { SettingsMenuScreen } from '@src/modules/settings/screens/SettingsMenuScreen';
 import { SettingsStackNavigationParam } from '@src/navigations/types/navigationParams';
 import React from 'react';
 

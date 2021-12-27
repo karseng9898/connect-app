@@ -5,7 +5,7 @@ import { chatsScreenStyle } from '@styles';
 import { useNavigation } from '@react-navigation/native';
 import { ChatItemProps } from '../types';
 import moment from 'moment';
-import { HomeScreenNavType } from '@src/navigations/types';
+import { HomeScreenNavType } from '@src/navigations/types/navigationType';
 
 export const ChatItem: FC<ChatItemProps> = props => {
   const { name, avatarUrl, createdAt, content, chatRoomId } = props.data;

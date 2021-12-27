@@ -1,11 +1,12 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { ChatRoomScreen } from '@src/modules';
-import { ChatRoomHeader } from '@src/modules/chats/components';
 import React from 'react';
-import { HomeTabNavigation } from '.';
 import { AppStackNavigationParam } from './types/navigationParams';
 import { AuthStackNavigation } from './AuthNavigation';
-import { SearchUserScreen } from '@src/modules/app';
+import { HomeTabNavigation } from './HomeTabNavigtaion';
+import { EditProfileScreen } from '@src/modules/app/screens/EditProfileScreen';
+import { SearchUserScreen } from '@src/modules/app/screens/SearchUserScreen';
+import { ChatRoomHeader } from '@src/modules/chats/components/ChatRoomHeader';
+import { ChatRoomScreen } from '@src/modules/chats/screens/ChatRoomScreen';
 
 const Stack = createNativeStackNavigator<AppStackNavigationParam>();
 
@@ -30,10 +31,16 @@ export const AppStackNavigation = () => {
         name="SearchUserScreen"
         component={SearchUserScreen}
         options={{
+          presentation: 'modal',
           headerShown: true,
           title: 'Add Friend',
           headerShadowVisible: false,
         }}
+      />
+      <Stack.Screen
+        name="EditProfileScreen"
+        component={EditProfileScreen}
+        options={{ presentation: 'modal' }}
       />
     </Stack.Navigator>
   );

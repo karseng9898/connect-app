@@ -8,11 +8,9 @@ import { API_BASE } from 'react-native-dotenv';
 const uploadLink: any = createUploadLink({
   uri: `${API_BASE}/graphql`,
 });
-console.log(API_BASE);
 
 const authLink = setContext(async (_, { headers }) => {
   const access_token = await AsyncStorage.getItem('@access_token');
-
   return {
     headers: {
       ...headers,

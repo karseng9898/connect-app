@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { View } from 'react-native';
 import { Icon, Text } from 'react-native-elements';
 import { noUserFoundCardStyle } from '../style';
-import { CardContainerView } from './index';
+import { CardContainerView } from './CardContainer';
 
 export const NoUserFoundCard: FC = () => {
   return (

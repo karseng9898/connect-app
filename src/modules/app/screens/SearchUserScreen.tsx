@@ -3,9 +3,10 @@ import { GET_USER, User } from '@src/graphql/user.graphql';
 import { appStyles } from '@src/styles';
 import React, { FC, useState } from 'react';
 import { ScrollView, View } from 'react-native';
+import { AddUserCard } from '../components/AddUserCard';
 import { NoUserFoundCard } from '../components/NoUserFoundCard';
 import { SearchUserInitialView } from '../components/SearchUserInitialView';
-import { AddUserCard, SearchUserInputContainer } from '../index';
+import { SearchUserInputContainer } from '../components/SearchUserInputContainer';
 import { searchUserContentStyle } from '../style';
 
 export const SearchUserScreen: FC = () => {
