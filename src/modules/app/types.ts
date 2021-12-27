@@ -1,5 +1,7 @@
 import { User } from '@src/graphql/user.graphql';
+import { FieldProps } from 'formik';
 import { Dispatch, SetStateAction } from 'react';
+import { InputProps } from 'react-native-elements';
 
 export interface SearchUserInputContainerProps {
   searchPressed: boolean;
@@ -9,4 +11,8 @@ export interface SearchUserInputContainerProps {
 
 export interface AddUserCardProps {
   user: User;
+}
+
+export interface TextInputProps extends InputProps, FieldProps {
+  type: 'password' | undefined;
 }

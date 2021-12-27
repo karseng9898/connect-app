@@ -25,3 +25,8 @@ export type SettingsMenuScreenNavType = NativeStackNavigationProp<
   AppStackNavigationParam,
   'HomeScreens'
 >;
+
+export type EditProfileScreenType = NativeStackNavigationProp<
+  AppStackNavigationParam,
+  'EditProfileScreen'
+>;

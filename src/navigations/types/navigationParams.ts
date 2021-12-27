@@ -9,6 +9,7 @@ export type AppStackNavigationParam = {
     chatRoomId: string;
   };
   SearchUserScreen: undefined;
+  EditProfileScreen: undefined;
 };
 
 export type AuthStackNavigationParam = {

@@ -1,4 +1,4 @@
-import { HomeScreenNavType } from '@src/navigations/types';
+import { HomeScreenNavType } from '@src/navigations/types/navigationType';
 import React, { FC } from 'react';
 import { Pressable } from 'react-native';
 import { Icon } from 'react-native-elements';

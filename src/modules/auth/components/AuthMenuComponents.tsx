@@ -1,8 +1,8 @@
-import { AuthMenuNavType } from '@src/modules';
 import { authStyles } from '@styles';
 import React, { FC } from 'react';
 import { View } from 'react-native';
 import { Button, Image } from 'react-native-elements';
+import { AuthMenuNavType } from '../screens/AuthMenuScreen';
 
 interface AuthButtonsProps {
   navigation: AuthMenuNavType;

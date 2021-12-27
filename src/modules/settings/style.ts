@@ -10,7 +10,8 @@ export const settingListHeaderStyle = StyleSheet.create({
   },
   avatarStyle: {
     borderWidth: 0.7,
-    borderColor: '#333',
+    borderColor: 'gray',
+    backgroundColor: '#fafafa',
   },
   textContainer: {
     justifyContent: 'center',

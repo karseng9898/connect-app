@@ -1,4 +1,5 @@
-import { LockIcon, MailIcon, TextInput } from '@src/modules/app';
+import { MailIcon, LockIcon } from '@src/modules/app/components/Icons';
+import { TextInput } from '@src/modules/app/components/InputComponent';
 import { composeValidators, minLength, required } from '@utils';
 import { Field } from 'formik';
 import React, { FC } from 'react';

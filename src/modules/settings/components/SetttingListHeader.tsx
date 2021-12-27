@@ -5,16 +5,20 @@ import { settingListHeaderStyle } from '../style';
 import { SettingListHeaderProps } from '../types';
 
 export const SettingListHeader: FC<SettingListHeaderProps> = props => {
-  const { user } = props;
+  const { user, navigation } = props;
+  const uri = user?.avatar || undefined;
+
+  const handlePress = () => {
+    navigation.navigate('EditProfileScreen');
+  };
   return (
-    <Pressable style={[settingListHeaderStyle.container]}>
+    <Pressable style={[settingListHeaderStyle.container]} onPress={handlePress}>
       <Avatar
-        source={{
-          uri: 'https://sketchok.com/images/articles/01-cartoons/000-va/24/08.jpg',
-        }}
+        source={{ uri }}
         size="large"
         rounded
-        avatarStyle={settingListHeaderStyle.avatarStyle}
+        icon={{ type: 'ionicon', name: 'person', color: 'lightgray' }}
+        containerStyle={settingListHeaderStyle.avatarStyle}
       />
       <View style={[settingListHeaderStyle.textContainer]}>
         <Text h4 style={[settingListHeaderStyle.name]}>

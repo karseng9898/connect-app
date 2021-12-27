@@ -1,4 +1,5 @@
 import { User } from '@src/graphql/user.graphql';
+import { SettingsMenuScreenNavType } from '@src/navigations/types/navigationType';
 
 export interface SettingDataType {
   name: string;
@@ -16,4 +17,5 @@ export interface SettingItemProps {
 
 export interface SettingListHeaderProps {
   user: User | null;
+  navigation: SettingsMenuScreenNavType;
 }

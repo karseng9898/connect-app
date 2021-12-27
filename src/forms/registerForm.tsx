@@ -1,10 +1,10 @@
 import {
-  LockIcon,
   MailIcon,
-  NameIcon,
   PersonIcon,
-  TextInput,
-} from '@src/modules/app';
+  NameIcon,
+  LockIcon,
+} from '@src/modules/app/components/Icons';
+import { TextInput } from '@src/modules/app/components/InputComponent';
 import {
   alphaNumeric,
   composeValidators,

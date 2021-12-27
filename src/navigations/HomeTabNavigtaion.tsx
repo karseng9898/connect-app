@@ -1,14 +1,13 @@
 import { HomeTabNavigationParam } from '@src/navigations/types/navigationParams';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { ContactsScreen } from '@src/modules';
 import { getMe } from '@store/actions/auth-action';
 import { useAppDispatch } from '@store/hooks';
 import React, { useEffect } from 'react';
 import { Icon } from 'react-native-elements';
-import { ChatStackNavigation } from '.';
 import { SettingsStackNavigation } from './SettingsStackNavigation';
-import { Pressable } from 'react-native';
 import { ContactHeaderAddUserIcon } from '@src/modules/contacts/components/ContactHeaderAddUserIcon';
+import { ChatStackNavigation } from './ChatStackNavigation';
+import { ContactsScreen } from '@src/modules/contacts/screens/ContactScreen';
 
 const Tab = createBottomTabNavigator<HomeTabNavigationParam>();
 

@@ -41,9 +41,8 @@ export const login = (data: LoginInput) => (dispatch: AppDispatch) => {
 
 export const getMe = () => async (dispatch: AppDispatch) => {
   try {
-    const res = await client.query({ query: GET_ME });
-    console.log(res);
-    dispatch(updateMe({ user: res.data.getMe, type: 'updateMe' }));
+    const res = await client.query({ query: GET_ME, fetchPolicy: 'no-cache' });
+    dispatch(updateMe({ user: res.data.getMe }));
   } catch (e) {
     console.warn(e);
   }

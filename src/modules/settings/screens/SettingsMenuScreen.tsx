@@ -7,16 +7,14 @@ import { appStyles, settingStyle } from '@styles';
 import React from 'react';
 import { SectionList, View } from 'react-native';
 import { Divider } from 'react-native-elements';
-import {
-  logoutConfirmationAlert,
-  SettingItem,
-  SettingListHeader,
-} from '../components';
+import { logoutConfirmationAlert } from '../components/SettingAlerts';
+import { SettingItem } from '../components/SettingItem';
+import { SettingListHeader } from '../components/SetttingListHeader';
 import { SettingDataType } from '../types';
 
 export const SettingsMenuScreen = () => {
   const dispatch = useAppDispatch();
-  const navigate = useNavigation<SettingsMenuScreenNavType>().navigate;
+  const navigation = useNavigation<SettingsMenuScreenNavType>();
   const user = useAppSelector(state => state.auth.user);
 
   return (
@@ -43,7 +41,9 @@ export const SettingsMenuScreen = () => {
             onPress = () => {
               logoutConfirmationAlert(() => {
                 logout()(dispatch);
-                navigate('AuthScreens', { screen: 'AuthMenuScreen' });
+                navigation.navigate('AuthScreens', {
+                  screen: 'AuthMenuScreen',
+                });
               });
             };
           }
@@ -64,7 +64,9 @@ export const SettingsMenuScreen = () => {
           <Divider style={[settingStyle.sectionHeaderDivider]} />
         )}
         renderSectionFooter={() => <Divider />}
-        ListHeaderComponent={() => <SettingListHeader user={user} />}
+        ListHeaderComponent={() => (
+          <SettingListHeader user={user} navigation={navigation} />
+        )}
         stickySectionHeadersEnabled={false}
       />
     </View>

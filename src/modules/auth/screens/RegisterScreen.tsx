@@ -1,15 +1,21 @@
 import { client } from '@config/apollo-client';
-import { RegisterForm } from '@forms';
+import { RegisterForm } from '@forms/registerForm';
 import { useNavigation } from '@react-navigation/native';
 import { REGISTER } from '@src/graphql/user.graphql';
-import { HideKeyboard, KeyboardAvoidView } from '@src/modules/app';
-import { RegisterScreenNavType } from '@src/navigations/types';
+import {
+  HideKeyboard,
+  KeyboardAvoidView,
+} from '@src/modules/app/components/KeyboardViews';
+import { RegisterScreenNavType } from '@src/navigations/types/navigationType';
 import { appStyles, loginStyles } from '@styles';
 import { Formik } from 'formik';
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { AuthButton, successRegisterAlert } from '../components';
+import {
+  successRegisterAlert,
+  AuthButton,
+} from '../components/LoginRegisterComponents';
 import { RegisterInput } from '../types';
 
 export const RegisterScreen = () => {
