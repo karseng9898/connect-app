@@ -4,8 +4,8 @@ import {
   TextInput,
 } from '@src/modules/app/components/InputComponent';
 import { composeValidators, required } from '@src/utils';
-import { Field } from 'formik';
-import { View } from 'native-base';
+import { Field, FieldProps } from 'formik';
+import { Text, View } from 'native-base';
 import React, { FC } from 'react';
 import { ScrollView } from 'react-native';
 
@@ -20,6 +20,21 @@ export const EditProfileForm: FC = () => {
       <View alignItems="center" my={5}>
         <Field name="avatar" component={ImagePicker} />
       </View>
+      <Field
+        name="username"
+        component={({ form }: FieldProps) => (
+          <View
+            mb={4}
+            flexDir="row"
+            alignItems="baseline"
+            justifyContent="center">
+            <Text fontSize="sm">username:</Text>
+            <Text mx={1} fontSize="lg" fontWeight="semibold">
+              {form.values.username}
+            </Text>
+          </View>
+        )}
+      />
       <Field
         name="name"
         placeholder="Name"

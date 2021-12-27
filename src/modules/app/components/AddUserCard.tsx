@@ -14,9 +14,10 @@ export const AddUserCard: FC<AddUserCardProps> = props => {
       <View style={[addUserCardStyle.container]}>
         <Avatar
           source={{
-            uri: 'https://cf.shopee.com.my/file/45c1c60c7fb39b341615a2c718fe3933',
+            uri: user.avatar || undefined,
           }}
           size="large"
+          icon={{ type: 'ionicon', name: 'person', color: 'lightgray' }}
           containerStyle={[addUserCardStyle.avatarContainer]}
           rounded
           imageProps={{ resizeMode: 'cover' }}

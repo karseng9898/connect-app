@@ -12,7 +12,9 @@ import { searchUserContentStyle } from '../style';
 export const SearchUserScreen: FC = () => {
   const [searchPressed, setSearchPressed] = useState(false);
 
-  const [getUser, { data }] = useLazyQuery(GET_USER);
+  const [getUser, { data }] = useLazyQuery(GET_USER, {
+    fetchPolicy: 'no-cache',
+  });
   const user: User | null | undefined = data?.user;
 
   const Comp = () => {

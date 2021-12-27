@@ -44,11 +44,13 @@ export const EditProfileScreen = () => {
 
   interface formValueType {
     name: string | undefined;
+    username: string | undefined;
     avatar: any;
   }
   const initialValues: formValueType = {
     name: user?.name,
     avatar: user?.avatar,
+    username: user?.username,
   };
   return (
     <Formik initialValues={initialValues} onSubmit={onSubmit}>

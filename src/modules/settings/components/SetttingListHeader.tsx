@@ -24,7 +24,7 @@ export const SettingListHeader: FC<SettingListHeaderProps> = props => {
         <Text h4 style={[settingListHeaderStyle.name]}>
           {user?.name}
         </Text>
-        <Text>{user?.email}</Text>
+        <Text>username: {user?.username}</Text>
       </View>
     </Pressable>
   );
