@@ -70,5 +70,11 @@
 		<string>Zocial.ttf</string>
 		<string>Fontisto.ttf</string>
 	</array>
+
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>To upload photos from the library</string>
+
+	<key>NSCameraUsageDescription</key>
+	<string>To capture photo for the profile picture</string>
 </dict>
 </plist>
