@@ -1,3 +1,4 @@
+import { resetCaches } from '@apollo/client';
 import { client } from '@config/apollo-client';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { GET_ME, LOGIN } from '@src/graphql/user.graphql';
@@ -49,7 +50,8 @@ export const getMe = () => async (dispatch: AppDispatch) => {
 };
 
 export const logout = () => async (dispatch: AppDispatch) => {
-  await AsyncStorage.multiRemove(['@access_token', '@refresh_token']);
+  resetCaches();
   await client.resetStore();
+  await AsyncStorage.multiRemove(['@access_token', '@refresh_token']);
   dispatch(successLogout());
 };

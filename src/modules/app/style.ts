@@ -23,6 +23,8 @@ export const searchUserInputStyle = StyleSheet.create({
 export const addUserCardStyle = StyleSheet.create({
   container: {
     flexDirection: 'row',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
   },
   avatarContainer: {
     borderWidth: 0.7,

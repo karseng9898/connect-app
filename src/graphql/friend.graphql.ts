@@ -17,8 +17,21 @@ const friendFields = `
 `;
 
 export const GET_FRIENDS = gql`
-    query friends {
-        friends {
+  query friends {
+    friends {
+      id
+      username
+      email
+      name
+      createdAt
+      avatar
+    }
+  }
+`;
+
+export const GET_FRIEND_REQUESTS = gql`
+    query friendRequests {
+        friendRequests {
             ${friendFields}
         }
     }
@@ -49,17 +62,13 @@ export const ADD_FRIEND = gql`
 `;
 
 export const ACCEPT_FRIEND = gql`
-    mutation acceptFriend($id: Int!) {
-        acceptFriend(friendId: $id) {
-            ${friendFields}
-        }
-    }
+  mutation acceptFriend($id: Int!) {
+    acceptFriend(friendId: $id)
+  }
 `;
 
 export const UNFRIEND = gql`
   mutation unfriend($id: Int!) {
-    unfriend(friendId: $id) {
-      createdAt
-    }
+    unfriend(friendId: $id)
   }
 `;

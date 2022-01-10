@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 
 export interface User {
+  id: number;
   username: string;
   email: string;
   name: string;
@@ -14,6 +15,7 @@ const loginFields = `
 `;
 
 const UserFields = `
+  id
   username
   email
   name
@@ -40,6 +42,14 @@ export const REGISTER = gql`
 export const GET_ME = gql`
   query getMe {
     getMe {
+      ${UserFields}
+    }
+  }
+`;
+
+export const GET_USER_BY_ID = gql`
+  query getUserById($id: Int!) {
+    getUserById(id: $id) {
       ${UserFields}
     }
   }

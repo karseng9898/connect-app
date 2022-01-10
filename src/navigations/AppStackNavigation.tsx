@@ -8,6 +8,7 @@ import { SearchUserScreen } from '@src/modules/app/screens/SearchUserScreen';
 import { ChatRoomHeader } from '@src/modules/chats/components/ChatRoomHeader';
 import { ChatRoomScreen } from '@src/modules/chats/screens/ChatRoomScreen';
 import { useAppSelector } from '@store/hooks';
+import { FriendRequestScreen } from '@src/modules/app/screens/FriendRequestScreen';
 
 const Stack = createNativeStackNavigator<AppStackNavigationParam>();
 
@@ -43,6 +44,16 @@ export const AppStackNavigation = () => {
               presentation: 'modal',
               headerShown: true,
               title: 'Add Friend',
+              headerShadowVisible: false,
+            }}
+          />
+          <Stack.Screen
+            name="FriendRequestScreen"
+            component={FriendRequestScreen}
+            options={{
+              presentation: 'modal',
+              headerShown: true,
+              title: 'Friend Requests',
               headerShadowVisible: false,
             }}
           />
