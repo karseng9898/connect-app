@@ -1,4 +1,4 @@
 export interface ContactListDataType {
-  avatarUri: string;
+  avatar: string;
   name: string;
 }

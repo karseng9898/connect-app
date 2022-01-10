@@ -12,7 +12,13 @@ export const ContactItem: FC<ContactListProps> = props => {
   const { data } = props;
   return (
     <View style={[contactItemStyle.container]}>
-      <Avatar source={{ uri: data.avatarUri }} rounded size="medium" />
+      <Avatar
+        source={{ uri: data.avatar }}
+        rounded
+        size="medium"
+        icon={{ type: 'ionicon', name: 'person', color: 'lightgray' }}
+        containerStyle={{ borderColor: 'lightgray', borderWidth: 0.4 }}
+      />
       <Text style={[contactItemStyle.name]}>{data.name}</Text>
     </View>
   );
