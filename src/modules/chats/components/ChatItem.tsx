@@ -8,11 +8,17 @@ import moment from 'moment';
 import { HomeScreenNavType } from '@src/navigations/types/navigationType';
 
 export const ChatItem: FC<ChatItemProps> = props => {
-  const { name, avatarUrl, createdAt, content, chatRoomId } = props.data;
+  const { friendId, receiverId, lastMessage, username, avatar, createdAt } =
+    props.data;
   const navigate = useNavigation<HomeScreenNavType>().navigate;
 
   const onPress = () => {
-    navigate('ChatsRoomScreen', { chatRoomId });
+    navigate('ChatsRoomScreen', {
+      friendId,
+      receiverId,
+      avatar,
+      username,
+    });
   };
 
   return (
@@ -24,9 +30,11 @@ export const ChatItem: FC<ChatItemProps> = props => {
       <View style={[chatsScreenStyle.itemContainer]}>
         <Avatar
           source={{
-            uri: avatarUrl,
+            uri: avatar || undefined,
           }}
           rounded
+          icon={{ type: 'ionicon', name: 'person', color: 'lightgray' }}
+          containerStyle={{ borderColor: 'lightgray', borderWidth: 0.4 }}
           size="medium"
         />
 
@@ -34,7 +42,7 @@ export const ChatItem: FC<ChatItemProps> = props => {
         <View style={[chatsScreenStyle.itemTextContainer]}>
           {/* Name and Time Container */}
           <View style={[chatsScreenStyle.itemNameTimeContainer]}>
-            <Text style={[chatsScreenStyle.itemName]}>{name}</Text>
+            <Text style={[chatsScreenStyle.itemName]}>{username}</Text>
             <Text style={[chatsScreenStyle.itemTime]}>
               {moment(createdAt).fromNow()}
             </Text>
@@ -45,7 +53,7 @@ export const ChatItem: FC<ChatItemProps> = props => {
             ellipsizeMode="tail"
             numberOfLines={1}
             style={[chatsScreenStyle.itemContent]}>
-            {content}
+            {lastMessage}
           </Text>
         </View>
       </View>

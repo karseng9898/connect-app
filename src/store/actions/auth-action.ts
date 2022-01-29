@@ -42,7 +42,11 @@ export const login = (data: LoginInput) => (dispatch: AppDispatch) => {
 
 export const getMe = () => async (dispatch: AppDispatch) => {
   try {
-    const res = await client.query({ query: GET_ME, fetchPolicy: 'no-cache' });
+    const res = await client.query({
+      query: GET_ME,
+      fetchPolicy: 'no-cache',
+      partialRefetch: true,
+    });
     dispatch(updateMe({ user: res.data.getMe }));
   } catch (e) {
     console.warn(e);
@@ -51,7 +55,7 @@ export const getMe = () => async (dispatch: AppDispatch) => {
 
 export const logout = () => async (dispatch: AppDispatch) => {
   resetCaches();
+  dispatch(successLogout());
   await client.resetStore();
   await AsyncStorage.multiRemove(['@access_token', '@refresh_token']);
-  dispatch(successLogout());
 };

@@ -1,22 +1,35 @@
-import React, { Dispatch, FC, SetStateAction, useState } from 'react';
+import React, { FC, useState } from 'react';
 import { Pressable, TextInput, View } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { messageInputStyles } from '../styles';
+import { client } from '@config/apollo-client';
+import { SEND_MESSAGE } from '@src/graphql/message.graphql';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-interface MessageInputProps {
-  message: string;
-  setMessage: Dispatch<SetStateAction<string>>;
-}
-export const MessageInput: FC<MessageInputProps> = props => {
-  const { message, setMessage } = props;
+export const MessageInput: FC<{ receiverId: number; friendId: number }> = ({
+  receiverId,
+  friendId,
+}) => {
+  const [message, setMessage] = useState('');
   const [buttonPressed, setButtonPressed] = useState(false);
 
+  async function handlePress() {
+    if (message.length === 0) {
+      return;
+    }
+    await client.mutate({
+      mutation: SEND_MESSAGE,
+      variables: { id: receiverId, friendId, content: message },
+    });
+    setMessage('');
+  }
   return (
-    <View style={[messageInputStyles.container]}>
+    <SafeAreaView edges={['bottom']} style={[messageInputStyles.container]}>
       <View style={[messageInputStyles.inputBoxContainer]}>
         <TextInput
           placeholder="Message"
           onChangeText={setMessage}
+          value={message}
           multiline
           style={[messageInputStyles.inputBox]}
         />
@@ -25,7 +38,7 @@ export const MessageInput: FC<MessageInputProps> = props => {
         style={[messageInputStyles.sendButton]}
         onPressIn={() => setButtonPressed(true)}
         onPressOut={() => setButtonPressed(false)}
-        onPress={() => console.warn(message)}>
+        onPress={handlePress}>
         <Icon
           type="ionicon"
           name={buttonPressed ? 'send' : 'send-outline'}
@@ -34,6 +47,6 @@ export const MessageInput: FC<MessageInputProps> = props => {
           tvParallaxProperties
         />
       </Pressable>
-    </View>
+    </SafeAreaView>
   );
 };

@@ -4,6 +4,7 @@ export const authStyles = StyleSheet.create({
   container: {
     justifyContent: 'flex-end',
     paddingHorizontal: 20,
+    backgroundColor: 'white',
   },
   button: {
     marginVertical: 8,

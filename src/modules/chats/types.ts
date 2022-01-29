@@ -1,10 +1,5 @@
+import { ChatResponse } from '@src/graphql/message.graphql';
+
 export interface ChatItemProps {
-  data: ChatItemDataType;
-}
-export interface ChatItemDataType {
-  chatRoomId: string;
-  name: string;
-  avatarUrl: string;
-  createdAt: string;
-  content: string;
+  data: ChatResponse;
 }

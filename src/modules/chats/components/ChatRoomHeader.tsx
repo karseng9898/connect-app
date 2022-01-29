@@ -1,8 +1,8 @@
 import { RouteProp } from '@react-navigation/native';
 import { AppStackNavigationParam } from '@src/navigations/types/navigationParams';
 import { ChatRoomNavType } from '@src/navigations/types/navigationType';
+import { Pressable } from 'native-base';
 import React, { FC } from 'react';
-import { Pressable } from 'react-native';
 import { Avatar, Icon, Text } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -12,6 +12,8 @@ interface ChatRoomHeaderProps {
 }
 export const ChatRoomHeader: FC<ChatRoomHeaderProps> = props => {
   const { route, navigation } = props;
+  const { username, avatar } = route.params;
+
   return (
     <SafeAreaView
       edges={['top']}
@@ -36,17 +38,24 @@ export const ChatRoomHeader: FC<ChatRoomHeaderProps> = props => {
           tvParallaxProperties
         />
       </Pressable>
-      <Avatar
-        source={{
-          uri: 'https://y.qichejiashi.com/tupian/upload/282009612.jpg',
-        }}
-        rounded
-        size="small"
-        containerStyle={{ marginHorizontal: 2 }}
-      />
-      <Text h4 style={{ marginHorizontal: 6 }}>
-        room id: {route.params.chatRoomId}
-      </Text>
+      <Pressable
+        flexDir="row"
+        onPress={() => navigation.navigate('ViewImageScreen', { avatar })}>
+        <Avatar
+          source={{
+            uri: avatar,
+          }}
+          rounded
+          icon={{ type: 'ionicon', name: 'person', color: 'lightgray' }}
+          containerStyle={{
+            marginHorizontal: 2,
+          }}
+          size="small"
+        />
+        <Text h4 style={{ marginHorizontal: 6 }}>
+          {username}
+        </Text>
+      </Pressable>
     </SafeAreaView>
   );
 };

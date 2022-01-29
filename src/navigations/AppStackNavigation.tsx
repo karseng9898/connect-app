@@ -9,6 +9,8 @@ import { ChatRoomHeader } from '@src/modules/chats/components/ChatRoomHeader';
 import { ChatRoomScreen } from '@src/modules/chats/screens/ChatRoomScreen';
 import { useAppSelector } from '@store/hooks';
 import { FriendRequestScreen } from '@src/modules/app/screens/FriendRequestScreen';
+import { CreatePostScreen } from '@src/modules/app/screens/CreatePostScreen';
+import { ViewImageScreen } from '@src/modules/app/screens/ViewImageScreen';
 
 const Stack = createNativeStackNavigator<AppStackNavigationParam>();
 
@@ -61,6 +63,20 @@ export const AppStackNavigation = () => {
             name="EditProfileScreen"
             component={EditProfileScreen}
             options={{ presentation: 'modal' }}
+          />
+          <Stack.Screen
+            name="CreatePostScreen"
+            component={CreatePostScreen}
+            options={{ presentation: 'modal' }}
+          />
+          <Stack.Screen
+            name="ViewImageScreen"
+            component={ViewImageScreen}
+            options={{
+              headerShown: true,
+              title: '',
+              headerStyle: { backgroundColor: 'black' },
+            }}
           />
         </>
       )}

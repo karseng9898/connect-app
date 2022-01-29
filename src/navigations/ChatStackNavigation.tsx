@@ -8,7 +8,11 @@ const Stack = createNativeStackNavigator<ChatStackNavigationParam>();
 export const ChatStackNavigation = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="ChatsScreen" component={ChatsScreen} />
+      <Stack.Screen
+        name="ChatsScreen"
+        component={ChatsScreen}
+        options={{ title: 'Chats' }}
+      />
     </Stack.Navigator>
   );
 };

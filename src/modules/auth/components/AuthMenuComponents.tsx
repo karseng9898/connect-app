@@ -43,7 +43,7 @@ export const Logo = () => {
   return (
     <View style={authStyles.logoContainer}>
       <Image
-        source={require('../../../../assets/logo.png')}
+        source={require('../../../../assets/connect.gif')}
         style={authStyles.logo}
         resizeMode="contain"
       />

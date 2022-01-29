@@ -41,8 +41,14 @@ export const SettingsMenuScreen = () => {
             onPress = () => {
               logoutConfirmationAlert(async () => {
                 await logout()(dispatch);
-                navigation.navigate('AuthScreens', {
-                  screen: 'AuthMenuScreen',
+                navigation.reset({
+                  index: 0,
+                  routes: [
+                    {
+                      name: 'AuthScreens',
+                      params: { screen: 'AuthMenuScreen' },
+                    },
+                  ],
                 });
               });
             };
@@ -74,7 +80,7 @@ export const SettingsMenuScreen = () => {
 };
 
 const DATA: SectionListDataType<SettingDataType>[] = [
-  { title: '', data: [{ name: 'Chats' }] },
+  // { title: '', data: [{ name: 'Chats' }] },
   {
     title: '',
     data: [{ name: 'Logout' }],

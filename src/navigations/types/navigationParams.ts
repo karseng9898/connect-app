@@ -6,11 +6,18 @@ export type AppStackNavigationParam = {
     | undefined;
   HomeScreens: undefined;
   ChatsRoomScreen: {
-    chatRoomId: string;
+    friendId: number;
+    receiverId: number;
+    avatar: string;
+    username: string;
   };
   SearchUserScreen: undefined;
   FriendRequestScreen: undefined;
   EditProfileScreen: undefined;
+  CreatePostScreen: undefined;
+  ViewImageScreen: {
+    avatar: string;
+  };
 };
 
 export type AuthStackNavigationParam = {

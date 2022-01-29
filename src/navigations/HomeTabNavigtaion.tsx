@@ -8,6 +8,7 @@ import { SettingsStackNavigation } from './SettingsStackNavigation';
 import { ContactHeaderAddUserIcon } from '@src/modules/contacts/components/ContactHeaderAddUserIcon';
 import { ChatStackNavigation } from './ChatStackNavigation';
 import { ContactsScreen } from '@src/modules/contacts/screens/ContactScreen';
+import { FeedsScreen } from '@src/modules/feeds/screens/FeedsScreen';
 
 const Tab = createBottomTabNavigator<HomeTabNavigationParam>();
 
@@ -29,6 +30,8 @@ export const HomeTabNavigation = () => {
           title = 'Settings';
         } else if (route.name === 'ContactsScreen') {
           title = 'Contacts';
+        } else if (route.name === 'FeedsScreen') {
+          title = 'Feeds';
         }
 
         return {
@@ -43,6 +46,9 @@ export const HomeTabNavigation = () => {
             } else if (route.name === 'ContactsScreen') {
               type = 'ionicon';
               iconName = focused ? 'person' : 'person-outline';
+            } else if (route.name === 'FeedsScreen') {
+              type = 'ionicon';
+              iconName = focused ? 'newspaper' : 'newspaper-outline';
             }
             return (
               <Icon
@@ -55,7 +61,7 @@ export const HomeTabNavigation = () => {
               />
             );
           },
-          title: title,
+          title,
           headerShown: false,
         };
       }}>
@@ -75,6 +81,7 @@ export const HomeTabNavigation = () => {
         }}
       />
       <Tab.Screen name="ChatsScreens" component={ChatStackNavigation} />
+      <Tab.Screen name="FeedsScreen" component={FeedsScreen} />
       <Tab.Screen name="SettingsScreens" component={SettingsStackNavigation} />
     </Tab.Navigator>
   );

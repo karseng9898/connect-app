@@ -1,7 +1,11 @@
 import { useQuery } from '@apollo/client';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { GET_FRIENDS, GET_FRIEND_REQUESTS } from '@src/graphql/friend.graphql';
+import {
+  Friend,
+  GET_FRIENDS,
+  GET_FRIEND_REQUESTS,
+} from '@src/graphql/friend.graphql';
 import { User } from '@src/graphql/user.graphql';
 import { AppStackNavigationParam } from '@src/navigations/types/navigationParams';
 import { appStyles } from '@src/styles';
@@ -45,11 +49,11 @@ export const ContactsScreen = () => {
     }, [refetchFriend, refetchRequest]),
   );
 
-  const friendRequestCount = friendRequests.length || 0;
+  const friendRequestCount = friendRequests ? friendRequests.length || 0 : 0;
 
   useFocusEffect(
     useCallback(() => {
-      if (!loading) {
+      if (!loading && data) {
         const titledList = extractFirstChar(data?.friends);
         setSectionData(sortSectionList(titledList));
       }
@@ -107,6 +111,11 @@ export const ContactsScreen = () => {
         renderItem={({ item }) => {
           return <ContactItem data={item} />;
         }}
+        refreshing={loading && friendRequestLoading}
+        onRefresh={() => {
+          refetchFriend();
+          refetchRequest();
+        }}
         renderSectionHeader={({ section }) => {
           return <Header title={section.title} />;
         }}
@@ -120,12 +129,12 @@ export const ContactsScreen = () => {
  * @Fuctions
  */
 
-type TitledList = User & { firstChar: string };
-const extractFirstChar = (friends: User[]): TitledList[] => {
+type TitledList = Partial<User> & { firstChar: string; friendId: number };
+const extractFirstChar = (friends: Friend[]): TitledList[] => {
   const titledList: TitledList[] = [];
 
-  friends.map((friend: User) => {
-    const firstChar = friend.name.slice(0, 1).toUpperCase();
+  friends.map((friend: Friend) => {
+    const firstChar = friend.user.name.slice(0, 1).toUpperCase();
 
     //* Check if the char is A-Z, if not set it to '#'
     const char =
@@ -133,7 +142,13 @@ const extractFirstChar = (friends: User[]): TitledList[] => {
         ? firstChar
         : '#';
 
-    const object = { ...friend, firstChar: char };
+    const object = {
+      receiverId: friend.user.id,
+      friendId: friend.friendId,
+      name: friend.user.name,
+      avatar: friend.user.avatar,
+      firstChar: char,
+    };
     titledList.push(object);
   });
   return titledList;

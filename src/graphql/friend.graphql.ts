@@ -1,11 +1,9 @@
 import { gql } from '@apollo/client';
+import { User } from './user.graphql';
 
 export interface Friend {
-  id: number;
-  senderId: number;
-  receiverId: number;
-  status: boolean;
-  createdAt: string;
+  friendId: number;
+  user: User;
 }
 
 const friendFields = `
@@ -14,17 +12,21 @@ const friendFields = `
     receiverId
     status
     createdAt
+    lastMessage
 `;
 
 export const GET_FRIENDS = gql`
   query friends {
     friends {
-      id
-      username
-      email
-      name
-      createdAt
-      avatar
+      friendId
+      user {
+        id
+        username
+        email
+        name
+        createdAt
+        avatar
+      }
     }
   }
 `;

@@ -5,6 +5,7 @@ export const messageInputStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-end',
     padding: 10,
+    backgroundColor: 'white',
   },
   inputBoxContainer: {
     flex: 1,
